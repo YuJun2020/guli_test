@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <script type="text/javascript" src="../js/vue-router.js"></script>
+</head>
+<body>
+    <div id="root">
+       <p>
+        <router-link to="/">首页</router-link>
+        <router-link to="/student">会员</router-link>
+        <router-link to="/teacher">讲师</router-link>
+       </p>
+       <router-view></router-view>
+    </div>    
+</body>
+<script type="text/javascript">
+    const routes = [{
+        path: "/",redirect:"/welcome"
+    },{
+        path:"/welcome",component:{template :"<div>welcome</div>"}
+    },{
+        path:"/student",component:{template :"<div>student list</div>"}
+    },{
+        path:"/teacher",component:{template :"<div>teacher list</div>"}}];
+    const router = new VueRouter({
+        routes    
+    })
+    new Vue({
+        el : "#root",
+        router
+    });
+</script>
+</html>
